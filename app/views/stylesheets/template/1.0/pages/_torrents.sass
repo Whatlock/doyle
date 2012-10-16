@@ -1,0 +1,229 @@
+$category-option-height: 120px
+$category-option-width: 131px
+$taglist-tag-width: $category-option-width
+$torrent-table-margin: 20px
+$torrent-image-margin-top: 20px
+
+body#torrents
+  // Search form
+  // TODO: Icons for tags
+  // TODO: Icons for category
+  // TODO: Add height to category selection. See variables.
+  // TODO: Better positioning of elements
+  // TODO: General cleanup and styling needs to be applied
+  form.search_form
+    +remove-sunken-bordered-container
+    width: $site-width
+    margin-bottom: 20px
+
+    // Remove stupid borders
+    th, td
+      border: 0
+
+    // Form contents wrapper
+    .box
+      +sunken-bordered-container
+
+    // Title
+    h3
+      margin-top: 0
+
+    // Category selection
+    table:first-child + table.cat_list
+      +sunken-bordered-container
+      display: block
+      padding: 0
+      tbody, tr, td
+        display: block
+      tr
+        overflow: hidden
+      td
+        +box-sizing(border-box)
+        float: left
+        width: $category-option-width
+        padding: 0
+        position: relative
+        overflow: hidden
+        border-right: 1px solid $taglist-tag-border
+        &:last-child
+          border-right: 0
+          width: $category-option-width - 1px
+      // Checkbox
+      input
+        display: none
+      // Label
+      label
+        color: $taglist-tag-link
+        font-size: 11px
+        font-weight: bold
+        display: block
+        padding: 8px 10px
+      label:hover
+        cursor: pointer
+      input:checked + label
+        background: $category-option-checked-background
+        color: $category-option-checked-text
+
+    // Tag list as <table>
+    #taglist
+      +sunken-bordered-container
+      display: block
+      margin-bottom: 10px
+      padding: 0
+      overflow: hidden
+      tbody, tr, td
+        display: block
+      tr
+        border-bottom: 1px solid $taglist-tag-border
+        overflow: hidden
+        &:last-child
+          border-bottom: 0
+      td
+        float: left
+        width: $taglist-tag-width
+        padding: 0
+        +box-sizing(border-box)
+        border-right: 1px solid $taglist-tag-border
+        &:last-child
+          border-right: 0
+          width: $taglist-tag-width - 1px
+      a
+        display: block
+        padding: 8px 10px
+        text-decoration: none
+        color: $taglist-tag-link
+        font-size: 11px
+        font-weight: bold
+        &:hover, &:active
+          background: $taglist-tag-hover
+          color: $taglist-tag-hover-link
+
+    // View/hide tags link
+    #taglist + table
+      display: none
+
+    // Actions and results count
+    .submit
+      text-align: right
+
+    // Results count
+    .submit span
+      font-weight: bold
+      &:before
+        content: "Your search returned "
+
+  // Results table
+  // TODO: Style 'sort by' currently shown as tr.colhead
+  // TODO: Icons for torrent group headings
+  // TODO: Pull some mathematical bits and numbers into variables
+  #torrent_table
+    +raised-bordered-container
+    display: block
+    width: $site-width
+    tbody
+      display: table
+      margin: 20px
+      width: $site-width - 2px - 40px
+    // Column headings with sorting links
+    tr.colhead
+      // Release information
+      td[width='100%']
+        width: $site-width - 2px - 40px - ($site-width / 2.25)
+    // Tags
+    .tags
+      left: 0
+
+  // Pagination
+  // TODO: Style this up a lil nicer
+  // TODO: Shouldnt be sunken
+  form.search_form + .linkbox, #torrent_table + .linkbox
+    +sunken-bordered-container
+    +box-shadow(none)
+    width: $site-width
+    text-align: center
+    a
+      text-decoration: none
+  // Top Pagination
+  form.search_form + .linkbox
+    +border-bottom-radius(0)
+    border-bottom: 0
+  #torrent_table + .linkbox
+    +border-top-radius(0)
+    border-top: 0
+    margin-top: -20px
+
+
+  // Torrent Detail
+  // OPTIMIZE: Artist link removed due to markup when facing releases with various artists
+  .header
+    overflow: hidden
+    margin-bottom: 20px
+    h2
+      +h2
+      font-size: 30px
+      margin: 0
+      color: $primary
+      //a
+        //text-decoration: none
+        //display: block
+        //font-size: 15px
+        //color: $text
+        //margin-left: 20px
+    .linkbox
+      font-size: 90%
+      a
+        text-decoration: none
+        color: $artist-linkbox-link
+        &:hover
+          color: $artist-linkbox-hover
+        &:focus
+          color: $artist-linkbox-focus
+        &:active
+          color: $artist-linkbox-active
+        &:visited
+          color: $artist-linkbox-visited
+
+  // Torrent Image
+  .sidebar .box_image
+    border: 0
+    +box-shadow(none)
+    overflow: hidden
+    position: relative
+    padding-left: 0
+    padding-bottom: 0
+    margin-left: -10px
+    margin-top: $torrent-image-margin-top
+    p
+      margin: 0
+    div
+      padding: 0 !important
+    .head
+      display: none
+    img
+      margin-bottom: 0
+      width: 240px
+      max-width: 240px !important
+      margin-right: 5px
+    // Shadow
+    &:before, &:after
+      content: ""
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 10
+      width: 10px
+      height: 500px
+    &:before
+      +background-image(linear-gradient(left,rgba(0,0,0,0.25),rgba(0,0,0,0)))
+    &:after
+      left: auto
+      right: 0
+      width: 5px
+      background: $primary
+
+  .main_column
+    padding: 20px
+
+  .box
+    margin-bottom: 20px

@@ -1,0 +1,484 @@
+// Variables
+$header-height:     120px
+$logo-width:        70px
+$logo-height:       35px
+$menu-height:       28px
+$searchbars-height: 54px
+$searchbars-input-gap: 10px
+$searchbars-input-width: (($site-width - $searchbars-input-gap) / 6) - $searchbars-input-gap + 3px
+$searchbars-input-height: $searchbars-height - 20px - 2px
+$alerts-height: 30px
+$alerts-width: 250px
+$minor-height: 30px
+$minor-width: 120px
+
+#wrapper > h1.hidden
+  position: absolute
+  left: 50%
+  top: 0
+  display: block
+  width: $logo-width
+  height: $logo-height
+  margin: 0
+  margin-left: ($site-width / 2) * -1
+  z-index: 1
+  -webkit-font-smoothing: antialiased
+  font-size: 16px
+  font-weight: bold
+  line-height: $logo-height
+  text-align: center
+  color: $header-title-text
+  +text-shadow($header-title-text-shadow 0 1px 1px)
+
+#header
+  position: relative
+  height: $header-height
+  +background(linear-gradient($header-background-start 0, $header-background-end 35px))
+
+  #logo
+    width: $logo-width
+    height: $logo-height
+    position: absolute
+    left: 50%
+    top: 0
+    margin-left: ($site-width / 2) * -1
+    z-index: 2
+    a
+      display: block
+      width: $logo-width
+      height: $logo-height
+      line-height: 10px
+      color: red !important
+
+  #userinfo
+    margin: 0 auto
+    width: $site-width
+    position: relative
+    padding-top: $logo-height + 1px
+
+  #userinfo_username
+    position: absolute
+    right: 50%
+    top: 0
+    margin-right: ($site-width / 2) * -1
+    -webkit-font-smoothing: antialiased
+    li
+      display: inline-block
+      margin-left: 10px
+      line-height: 15px
+      height: 15px
+      padding: 10px 0 10px
+      a
+        text-decoration: none
+        font-size: 12px
+        font-weight: bold
+        color: $userinfo-off
+        +transition-property(color)
+        +transition-duration(0.2s)
+        &:visited
+          color: $userinfo-visited
+        &:hover
+          color: $userinfo-hover
+        &:focus
+          color: $userinfo-focus
+        &:active
+          color: $userinfo-active
+      &#nav_userinfo a
+        color: $userinfo-username
+      &#nav_useredit
+        margin-left: 32px
+
+  #userinfo_major
+    position: absolute
+    left: 50%
+    top: 0
+    width: 185px
+    line-height: $logo-height - 8px - 8px
+    margin-top: 4px
+    margin-left: (($site-width / 2) * -1) + $logo-width + 20px
+    padding: 3px 8px 3px
+    +border-radius(4px)
+    background: $userinfo-major-background
+    &:before
+      position: absolute
+      left: -6px
+      top: 3px
+      content: ""
+      display: block
+      width: $logo-height - 8px - 8px + 1px
+      height: $logo-height - 8px - 8px + 1px
+      background: $userinfo-major-background
+      +border-radius(4px)
+      +transform(rotate(45deg))
+      z-index: 0
+    li
+      position: relative
+      float: left
+      margin-right: 10px
+      z-index: 1
+      &:last-child
+        margin-right: 0
+      a
+        text-decoration: none
+        display: inline
+        font-size: 11px
+        font-weight: bold
+        color: $userinfo-major-off
+        +transition-property(color)
+        +transition-duration(0.2s)
+        &:visited
+          color: $userinfo-major-visited
+        &:hover
+          color: $userinfo-major-hover
+        &:focus
+          color: $userinfo-major-focus
+        &:active
+          color: $userinfo-major-active
+
+  #userinfo_stats
+    position: relative
+    display: inline-block
+    float: right
+    padding: 8px 10px 6px 0
+    z-index: 3
+    border-right: 1px solid $menu-border
+    line-height: $logo-height - 8px - 8px - 8px
+    font-size: 11px
+    font-weight: bold
+    li
+      color: $userinfo-stats-off
+      display: inline
+      margin-left: 10px
+      a
+        color: $userinfo-stats-off
+        text-decoration: none
+        &:visited
+          color: $userinfo-stats-visited
+        &:hover
+          color: $userinfo-stats-hover
+        &:focus
+          outline: none
+          color: $userinfo-stats-focus
+        &:active
+          color: $userinfo-stats-active
+      span.stat
+        color: $userinfo-stats
+
+  #userinfo_minor
+    display: block
+    position: absolute
+    top: 7px
+    right: 86px
+    z-index: 3
+    width: 20px
+    height: 0
+    padding-top: 20px
+    overflow: hidden
+    &:before
+      display: block
+      content: ""
+      position: absolute
+      top: 8px
+      right: 8px
+      width: 0
+      height: 0
+      border: 4px solid transparent
+      border-top-color: $userinfo-username
+      z-index: 4
+    &:hover
+      cursor: pointer
+      overflow: visible
+      height: auto
+      &:before
+        border-top-color: $menu-off
+    li
+      float: right
+      text-align: right
+      width: $minor-width
+      font-size: 11px
+      font-weight: bold
+      background: $userinfo-minor-background
+      margin-bottom: -1px
+      a
+        display: block
+        padding: 8px 10px
+        margin-left: -1px
+        text-decoration: none
+        font-size: 11px
+        font-weight: bold
+        border: 1px solid $menu-border
+        background: $userinfo-minor-background
+        color: $menu-off
+        +transition-property("background,color")
+        +transition-duration(0.2s)
+        &:visited
+          color: $menu-visited
+        &:hover
+          color: $menu-hover
+          background: $userinfo-minor-hover-background
+        &:focus
+          outline: none
+          color: $menu-focus
+          background: $userinfo-minor-hover-background
+        &:active
+          color: $menu-active
+    &:hover li:first-child:before
+      content: ""
+      display: block
+      position: absolute
+      top: 0
+      right: 0
+      height: 19px
+      width: 20px
+      border: 1px solid $menu-border
+      background: $menu-hover-background
+
+  #menu
+    position: absolute
+    left: 0
+    top: $logo-height
+    width: 100%
+    height: $menu-height
+    background: $menu-background
+    border-top: 1px solid $menu-highlight
+    border-bottom: 1px solid $menu-border
+    ul
+      margin: 0 auto
+      width: $site-width
+      li
+        float: left
+        a
+          display: block
+          height: 14px
+          text-decoration: none
+          padding: 7px 10px
+          font-size: 12px
+          font-weight: bold
+          line-height: 14px
+          color: $menu-off
+          border-right: 1px solid $menu-border
+          +transition-property("background-color,color")
+          +transition-duration(0.2s)
+          &:visited
+            color: $menu-visited
+          &:hover
+            color: $menu-hover
+            background: $menu-hover-background
+          &:focus
+            outline: none
+            color: $menu-focus
+            background: $menu-hover-background
+          &:active
+            color: $menu-active
+        &#nav_index
+          display: none
+        &#nav_torrents
+          border-left: 1px solid $menu-border
+        // Move site-related options to top
+        &#nav_irc, &#nav_rules, &#nav_wiki, &#nav_staff
+          position: absolute
+          top: -36px
+          left: 50%
+          line-height: $logo-height - 8px - 8px
+          margin-top: 4px
+          margin-left: -185px
+          padding: 4px 8px 3px
+          background: $userinfo-major-background
+          a
+            text-decoration: none
+            display: inline
+            padding: 0
+            font-size: 11px
+            font-weight: bold
+            border: 0
+            color: $userinfo-major-off
+            +transition-property(color)
+            +transition-duration(0.2s)
+            &:visited
+              color: $userinfo-major-visited
+            &:hover
+              color: $userinfo-major-hover
+              background: none
+            &:focus
+              color: $userinfo-major-focus
+              background: none
+            &:active
+              color: $userinfo-major-active
+        &#nav_irc
+          margin-left: (($site-width / 2) * -1) + $logo-width + 210px
+        &#nav_rules
+          margin-left: -162px
+          margin-left: (($site-width / 2) * -1) + $logo-width + 238px
+        &#nav_wiki
+          margin-left: -123px
+          margin-left: (($site-width / 2) * -1) + $logo-width + 277px
+        &#nav_staff
+          +border-right-radius(4px)
+          margin-left: -93px
+          margin-left: (($site-width / 2) * -1) + $logo-width + 310px
+
+  #alerts
+    position: relative
+    float: right
+    height: $menu-height
+    width: $menu-height + 2px
+    border: 1px solid $menu-border
+    border-top: 0
+    border-bottom: 0
+    background: $menu-background
+    &:after
+      content: ""
+      display: none
+      position: absolute
+      bottom: -1px
+      left: 0
+      z-index: 4
+      background: $menu-background
+      width: $menu-height + 2px
+      height: 1px
+      opacity: 0.5
+    .alertbar
+      display: none
+      position: absolute
+      left: 0
+      z-index: 3
+      width: $alerts-width
+      font-size: 11px
+      font-weight: bold
+      &:first-child
+        display: block
+        position: absolute
+        z-index: 5
+        top: 9px
+        left: 10px
+        height: 10px
+        width: 10px
+        text-indent: -9999px
+        overflow: hidden
+        +border-radius(5px)
+        background: $menu-hover
+        +animate(pulse, 2s, 0, ease-in-out, infinite)
+        a
+          display: none
+    &:hover
+      background: $menu-hover-background
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        z-index: 5
+        top: 9px
+        left: 10px
+        height: 10px
+        width: 10px
+        text-indent: -9999px
+        overflow: hidden
+        +border-radius(5px)
+        background: $menu-hover
+      &:after
+        display: block
+      // TODO: Fix height issue for alert notification listing
+      .alertbar
+        display: block
+        a
+          display: block
+          padding: 8px 10px
+          margin-left: -1px
+          text-decoration: none
+          font-size: 11px
+          font-weight: bold
+          border: 1px solid $menu-border
+          background: $menu-hover-background
+          color: $menu-off
+          +transition-property("background,color")
+          +transition-duration(0.2s)
+          &:visited
+            color: $menu-visited
+          &:hover
+            color: $menu-hover
+            background: $alerts-hover-background
+          &:focus
+            outline: none
+            color: $menu-focus
+            background: $alerts-hover-background
+          &:active
+            color: $menu-active
+        &:first-child
+          left: 0
+          width: $alerts-width
+          display: block
+          overflow: visible
+          text-indent: 0
+          +border-radius(0)
+          +animate(none)
+          +opacity(1)
+        @for $i from 1 through 6
+          &:nth-child(#{$i})
+            top: ($alerts-height* $i) + $menu-height - $alerts-height
+  #searchbars
+    position: absolute
+    left: 0
+    top: $logo-height + $menu-height + 2
+    padding: 10px 0
+    width: 100%
+    height: $searchbars-height - 20px
+    background: $searchbars-background
+    +background(linear-gradient($searchbars-background 0, $searchbars-background 50%, darken($searchbars-background,1%) 50%, darken($searchbars-background,1%) 100%))
+    border-bottom: 1px solid $searchbars-border
+    ul
+      margin: 0 auto
+      width: $site-width
+      li
+        position: relative
+        display: block
+        float: left
+        margin-right: $searchbars-input-gap
+        width: $searchbars-input-width
+        span
+          display: none
+        input[type=text]
+          +appearance(none)
+          display: block
+          height: $searchbars-input-height - 10px
+          line-height: $searchbars-input-height - 10px
+          padding: 6px 10px 4px
+          width: $searchbars-input-width - 20px
+          -webkit-font-smoothing: antialiased
+          font-size: 14px
+          font-weight: bold
+          +box-shadow(0 0 0 2px $searchbars-input-shadow inset)
+          border: 1px solid $searchbars-input-border
+          color: $searchbars-input-text
+          outline: none
+          +transition-property("border-color")
+          +transition-duration(0.2s)
+          &:focus
+            border-color: $searchbars-input-focus-border
+            color: $searchbars-input-focus
+        &:last-child
+          margin-right: 0
+    #artistcomplete
+      z-index: 100
+      position: absolute
+      left: 0 
+      top: $searchbars-input-height + 1px
+      width: $searchbars-input-width
+      padding: 0
+      font-size: 11px
+      background: $searchbars-autocomplete-background
+      border: 1px solid $searchbars-input-focus-border
+      border-top: 0 
+      li
+        width: $searchbars-input-width - 20px
+        padding: 5px 10px
+        border-top: 1px solid $searchbars-input-border
+        color: $searchbars-autocomplete
+        +transition-property("color")
+        +transition-duration(0.1s)
+        &.highlight
+          color: $searchbars-autocomplete-highlight
+
+  ul
+    margin: 0
+    padding: 0
+    list-style: none

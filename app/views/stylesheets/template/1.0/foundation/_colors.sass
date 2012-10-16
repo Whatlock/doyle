@@ -1,0 +1,142 @@
+// Base
+$primary:                             #3977b2
+
+// Global
+$body-background:                     #fafafa
+$text:                                #444
+
+// Links
+$link-text: $primary
+$link-hover: darken($primary,10%)
+$link-focus: $link-hover
+$link-active: darken($primary,15%)
+$link-visited: $link-text
+
+// Header
+$header-title-text:                   #fff
+$header-title-text-shadow:            darken($primary,10%)
+$header-background-start:             lighten($primary,5%)
+$header-background-end:               darken($primary,5%)
+
+// Footer
+$footer-border:                       #eee
+$footer-text:                         fade-out($text,0.5)
+
+// Menu
+$menu-background:                     #ebebeb
+$menu-hover-background:               lighten($menu-background,3%)
+$menu-border:                         #d8d8d8
+$menu-highlight:                      #fff
+$menu-off:                            #444
+$menu-hover:                          $primary
+$menu-focus:                          $menu-hover
+$menu-visited:                        $menu-off
+$menu-active:                         darken($menu-hover,10%)
+
+// Userinfo
+$userinfo-username:                   #fff
+$userinfo-off:                        darken(desaturate($primary,10%),0.2)
+$userinfo-off:                        saturate(lighten($primary,20%),0.4)
+$userinfo-hover:                      lighten($userinfo-off,10%)
+$userinfo-focus:                      $userinfo-hover
+$userinfo-visited:                    $userinfo-off
+$userinfo-active:                     #fff
+
+// Userinfo - Major
+$userinfo-major-background:           saturate(darken($primary,10%),10%)
+$userinfo-major-off:                  lighten($primary,5%)
+$userinfo-major-hover:                lighten($userinfo-off,10%)
+$userinfo-major-focus:                $userinfo-hover
+$userinfo-major-visited:              $userinfo-major-off
+$userinfo-major-active:               #fff
+
+// Userinfo - Minor
+$userinfo-minor-background:           $menu-hover-background
+$userinfo-minor-hover-background:     lighten($userinfo-minor-background,2%)
+
+// Userinfo - Stats
+$userinfo-stats:                      #888
+$userinfo-stats-off:                  #444
+$userinfo-stats-hover:                $primary
+$userinfo-stats-focus:                $userinfo-stats-hover
+$userinfo-stats-visited:              $userinfo-stats-off
+$userinfo-stats-active:               darken($userinfo-stats-hover,10%)
+$userinfo-border:                     $menu-border
+
+// Alerts
+$alert-bubble:                        $primary
+$alerts-background:                   $menu-hover-background
+$alerts-hover-background:             lighten($alerts-background,2%)
+
+// Searchbars
+$searchbars-background:               #f6f6f6
+$searchbars-border:                   #e7e7e7
+$searchbars-input-border:             $searchbars-border
+$searchbars-input-shadow:             fade-out($searchbars-input-border,0.8)
+$searchbars-input-text:               #cbcbcb
+$searchbars-input-focus:              #444
+$searchbars-input-focus-border:       fade-out($primary,0.5)
+$searchbars-autocomplete-background:  #fff
+$searchbars-autocomplete-border:      $searchbars-input-border
+$searchbars-autocomplete:             fade-out($searchbars-input-focus,0.5)
+$searchbars-autocomplete-highlight:   $primary
+
+// Raised and bordered containers
+$raised-bordered-container-background: #fff
+$raised-bordered-container-border: #e7e7e7
+$raised-bordered-container-shadow: fade-out($raised-bordered-container-border,0.25)
+
+// Sunken bordered container - layerable using rgba()
+$sunken-bordered-container-background: rgba(0,0,0,0.02)
+$sunken-bordered-container-border: rgba(0,0,0,0.09)
+$sunken-bordered-container-shadow: rgba(0,0,0,0.06)
+
+// Sidebar
+$sidebar-box-border: fade-out($raised-bordered-container-border,0.25)
+$sidebar-box-border-highlight: #fff
+$sidebar-box-title: $primary
+$sidebar-box-title-shadow: #fff
+$sidebar-box-image-border: #fff
+$sidebar-box-image-shadow: #ddd
+
+// Recommended / Vanity House Additions
+$recommended-border: $raised-bordered-container-border
+
+// News
+$news-head-background: transparent
+$news-border: $raised-bordered-container-border
+$news-head-border: $news-border
+$news-head-title: #444
+$news-head-time-ago: fade-out($news-head-title,0.5)
+
+// Artist site links
+$artist-linkbox-link: #666
+$artist-linkbox-hover: $primary
+$artist-linkbox-focus: $artist-linkbox-hover
+$artist-linkbox-active: darken($primary,5%)
+$artist-linkbox-visited: $artist-linkbox-link
+
+// Discography links on artist page
+$artist-discog-links-background: #f6f6f6
+$artist-discog-links-border: #e7e7e7
+$artist-discog-links-shadow: #efefef
+$artist-discog-links-link: #666
+$artist-discog-links-hover: $primary
+$artist-discog-links-focus: $artist-discog-links-hover
+$artist-discog-links-active: darken($primary,5%)
+$artist-discog-links-visited: $artist-discog-links-link
+
+// Table
+$table-heading-background: #f9f9f9
+$table-cell-border: fade-out($raised-bordered-container-border,0.25)
+
+// Torrent Table
+$torrent-table-torrent-heading: scale_color($primary, $lightness: 96%, $saturation: 100%)
+
+// Basic/Advanced Search
+$category-option-checked-background: fade-out(#fff,0.5)
+$category-option-checked-text: $primary
+$taglist-tag-border: $sunken-bordered-container-border
+$taglist-tag-link: fade-out($text,0.25)
+$taglist-tag-hover: fade-out(#fff,0.5)
+$taglist-tag-hover-link: $primary

@@ -1,0 +1,116 @@
+// Variables
+$header-content-gap: 20px
+$sidebar-width: 220px
+$main-sidebar-gap: 20px
+$main-width: $site-width - $sidebar-width - $main-sidebar-gap
+
+// Pages with sidebar
+#index, #torrents, #wiki, #user, #artist
+  #content
+    padding-right: $sidebar-width + $main-sidebar-gap
+    width: $main-width
+    .main_column
+      width: $main-width
+    .sidebar
+      float: right
+      margin-right: ($sidebar-width + $main-sidebar-gap) * -1
+      width: $sidebar-width + ($main-sidebar-gap / 2)
+
+#content
+  padding-top: $header-content-gap
+  width: $site-width
+  margin: 0 auto
+
+  h1
+    +h1
+
+  h2
+    +h2
+
+  h3
+    +h3
+
+  h4
+    +h4
+
+  h5
+    +h5
+
+  a
+    color: $link-text
+    &:visited
+      color: $link-visited
+    &:hover
+      color: $link-hover
+    &:focus
+      color: $link-focus
+    &:active
+      color: $link-active
+
+  img
+    margin-bottom: 10px
+
+  ul.nobullet
+    list-style: none
+    padding-left: 0
+
+  ul.stats
+    margin: 0
+    padding: 0
+
+  .main_column
+    +raised-bordered-container
+    padding: 20px 0
+
+  .center
+    text-align: left
+
+  form
+    +sunken-bordered-container
+
+  table
+    margin-bottom: 20px
+    width: 100%
+    +box-sizing(border-box)
+    th, td
+      padding: 4px
+      border: 1px solid $table-cell-border
+    // Colhead_dark class used where th would make more sense
+    tr.colhead_dark td, th
+      background: $table-heading-background
+
+  table.torrent_table
+    // Release heading and individual torrent
+    tr.group, tr.torrent
+      td
+        background: $torrent-table-torrent-heading
+      td.center
+        border-right: 0
+      td.center + td
+        border-left: 0
+      strong, .tags
+        position: relative
+        left: -24px
+      strong
+        +h2
+        color: $primary
+        a
+          text-decoration: none
+    // Individual torrent
+    tr.torrent td:first-child
+      border-right: 0
+    tr.torrent td.cats_col
+      border-left: 0
+    // Tags
+    tr.group .tags
+      font-size: 90%
+      color: $primary
+      +opacity(0.8)
+      a
+        text-decoration: none
+    // Collapse / Expand link
+    a[title^='Collapse'], a[title^='Expand']
+      text-decoration: none
+    // Highlight row on hover
+    tr.group_torrent:hover td
+      background: fade-out($table-heading-background,0.1)
