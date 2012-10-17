@@ -12,6 +12,8 @@ class Stylesheet < ActiveRecord::Base
 
   before_save :validate_primary_color
 
+  mount_uploader :file, StylesheetUploader
+
   def generate
     erb = ERB.new(template_file).result(binding)
     opts = Compass.configuration.to_sass_engine_options.merge syntax: :sass, style: :compressed
@@ -23,8 +25,8 @@ class Stylesheet < ActiveRecord::Base
     FileUtils.mkdir_p export_path
     File.open(export_target, 'w') { |f| f.write generate }
     self.last_generated = DateTime.now
-    self.url = export_filename
-    save
+    self.file = File.open(export_target)
+    save!
   end
 
   private
