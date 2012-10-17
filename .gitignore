@@ -5,3 +5,5 @@
 .sass-cache
 public/stylesheets
 config/delayed_job.yml
+.powrc
+.powenv
