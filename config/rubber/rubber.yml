@@ -124,7 +124,7 @@ auto_security_groups: true
 # by mangling their names to be appname_env_groupname
 # This makes it safer to have staging and production coexist on the same EC2
 # account, or even multiple apps
-isolate_security_groups: true
+isolate_security_groups: false
 
 # OPTIONAL: Prompts one to sync security group rules when the ones in amazon
 # differ from those in rubber
