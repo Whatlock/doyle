@@ -4,6 +4,6 @@
     %li
       = stylesheet.primary_color
       (
-      = link_to 'Generate', generate_stylesheet_path
+      = link_to 'Generate', generate_stylesheet_path(stylesheet)
       - if stylesheet.last_generated?
         = "Last generated: #{stylesheet.last_generated}"
