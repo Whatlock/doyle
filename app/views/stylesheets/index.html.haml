@@ -1,0 +1,9 @@
+%h1 Stylesheets
+%ul
+  - for stylesheet in @stylesheets
+    %li
+      = stylesheet.primary_color
+      (
+      = link_to 'Generate', generate_stylesheet_path
+      - if stylesheet.last_generated?
+        = "Last generated: #{stylesheet.last_generated}"
