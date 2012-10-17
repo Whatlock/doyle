@@ -1,15 +1,11 @@
 class Stylesheet < ActiveRecord::Base
-  attr_accessible :author, :options, :primary_color
+  attr_accessible :author, :options, :primary_color, :version
 
-  before_save :add_version_number
-
-  def stylesheet_url
-    "#{root_url}/stylesheets/whatson/1FF0044-87e8e632e5bc6c8a0866dba19b383b0d.css"
-  end
+  before_save :set_version
 
   private
 
-  def add_version_number
+  def set_version
     self.version = "1.0"
   end
 end

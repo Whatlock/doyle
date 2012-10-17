@@ -1,5 +1,9 @@
 WhatsonDoyle::Application.routes.draw do
-  resources :stylesheets
+  resources :stylesheets do
+    get 'compile', on: :member
+  end
+
+  match "/delayed_job" => DelayedJobWeb, :anchor => false
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
