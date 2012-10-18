@@ -1,8 +1,12 @@
 %h1 Stylesheets
+= link_to 'Create new stylesheet', new_stylesheet_path
 %ul
   - for stylesheet in @stylesheets
     %li
-      = stylesheet.primary_color
+      - if stylesheet.last_generated?
+        = link_to stylesheet.primary_color, stylesheet.file.url
+      - else
+        = stylesheet.primary_color
       (
       = link_to 'Generate', generate_stylesheet_path(stylesheet)
       - if stylesheet.last_generated?

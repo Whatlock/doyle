@@ -1,0 +1,6 @@
+= semantic_form_for @stylesheet do |f|
+  = f.inputs name: 'General settings' do
+    = f.input :primary_color
+    = f.input :author
+    = f.input :version, as: :select, collection: {"1.0 (Latest)" => "1.0"}, include_blank: false
+  = f.submit text: "Generate"

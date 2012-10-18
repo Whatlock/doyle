@@ -12,6 +12,7 @@ gem 'fog'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'formtastic'
+gem 'mini_colors-rails'
 
 gem 'daemons'
 gem 'delayed_job_active_record'
