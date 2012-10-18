@@ -18,14 +18,14 @@ class StylesheetsController < ApplicationController
 
   def create
     @stylesheet = Stylesheet.create params[:stylesheet]
-    @stylesheet.delay.generate!
-    flash[:notice] = "Stylesheet will be generated soon..."
+    #@stylesheet.delay.generate!
+    @stylesheet.generate!
     respond_with @stylesheet, location: stylesheets_path
   end
 
   def generate
-    @stylesheet.delay.generate!
-    flash[:notice] = "Stylesheet will be generated soon..."
+    #@stylesheet.delay.generate!
+    @stylesheet.generate!
     respond_with @stylesheet, location: stylesheets_path
   end
 
