@@ -1,0 +1,7 @@
+dns_provider: zerigo
+dns_records:
+  - host: doyle
+    domain: iswhatcddown.com
+    data:
+      hosted_zone_id: Z3DZXE0Q79N41H
+      dns_name: DoyleLoadBalancer-1643562339.us-east-1.elb.amazonaws.com

@@ -1,0 +1,34 @@
+app_name: doyle
+app_user: app
+admin_email: "karl@karlbright.org"
+web_tools_user: admin
+web_tools_password: captainDoyl3
+timezone: Australia/Perth
+domain: iswhatcddown.com
+rubber_secret: "#{File.expand_path('~') + '/.ec2' + (Rubber.env == 'production' ? '' : '_dev') + '/rubber-secret.yml' rescue ''}"
+
+cloud_providers:
+  aws:
+    region: us-east-1
+    image_type: t1.micro
+    image_id: i-56eff72b
+cloud_provider: aws
+
+security_groups:
+  default:
+    description: The default security group
+    rules:
+      - source_group_name: default
+        source_group_account: "#{cloud_providers.aws.account}"
+      - protocol: tcp
+        from_port: 22
+        to_port: 22
+        source_ips: [0.0.0.0/0]
+assigned_security_groups: [default]
+auto_security_groups: true
+isolate_security_groups: false
+prompt_for_security_group_sync: true
+
+packages: [postfix, build-essential, git-core, ec2-ami-tools, libxslt-dev, ntp]
+gems: [open4, aws-s3, bundler, [rubber, "#{Rubber.version}"]]
+stop_on_error_cmd: "function error_exit { exit 99; }; trap error_exit ERR"
