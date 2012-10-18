@@ -1,6 +1,6 @@
 ---
 - !ruby/object:Rubber::Configuration::InstanceItem
-  name: production
+  name: doyle
   domain: iswhatcddown.com
   roles:
   - !ruby/object:Rubber::Configuration::RoleItem
@@ -67,17 +67,17 @@
   - !ruby/object:Rubber::Configuration::RoleItem
     name: web_tools
     options: {}
-  instance_id: i-70c0df0d
+  instance_id: i-56eff72b
   image_type: t1.micro
   image_id: ami-3d4ff254
   security_groups:
   - default
   - web
   - web_tools
-  external_host: ec2-23-20-223-80.compute-1.amazonaws.com
-  external_ip: 23.20.223.80
-  internal_host: ip-10-244-30-91.ec2.internal
-  internal_ip: 10.244.30.91
+  external_host: ec2-23-20-187-181.compute-1.amazonaws.com
+  external_ip: 23.20.187.181
+  internal_host: ip-10-202-54-41.ec2.internal
+  internal_ip: 10.202.54.41
   zone: us-east-1b
   platform: linux
   root_device_type: ebs
