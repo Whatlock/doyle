@@ -11,7 +11,7 @@ cloud_providers:
   aws:
     region: us-east-1
     image_type: t1.micro
-    image_id: i-56eff72b
+    image_id: ami-3d4ff254
 cloud_provider: aws
 
 security_groups:
