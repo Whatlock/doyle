@@ -20,19 +20,21 @@ security_groups:
   default:
     description: default group
     rules:
+      - source_group_name: default
+        source_group_account: "#{cloud_providers.aws.account}"
       - protocol: tcp
         from_port: 22
         to_port: 22
         source_ips: [0.0.0.0/0]
   web:
-    description: "To open up port #{web_port}/#{web_ssl_port} for http server on web role"
+    description: "To open up port #{web_port} for http server on web role"
     rules:
       - protocol: tcp
         from_port: "#{web_port}"
         to_port: "#{web_port}"
         source_ips: [0.0.0.0/0]
   web_tools:
-    description: "To open up port #{web_tools_port}/#{web_tools_ssl_port} for internal/tools http server"
+    description: "To open up port #{web_tools_port} for internal/tools http server"
     rules:
       - protocol: tcp
         from_port: "#{web_tools_port}"
