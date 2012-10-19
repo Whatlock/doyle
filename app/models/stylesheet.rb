@@ -4,11 +4,7 @@ class Stylesheet < ActiveRecord::Base
 
   TEMPLATE_PATH_ROOT = Rails.root.join 'app', 'assets', 'whatlock'
   TEMPLATE_BASE_FILENAME = 'whatlock.css.sass.erb'
-  if Rails.env.production?
-    EXPORT_PATH_ROOT = Rails.root.join 'tmp'
-  else
-    EXPORT_PATH_ROOT = Rails.root.join 'public', 'stylesheets'
-  end
+  EXPORT_PATH_ROOT = Rails.root.join 'tmp'
 
   attr_accessible :author, :options, :primary_color, :version
 
