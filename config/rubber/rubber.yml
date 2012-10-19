@@ -10,6 +10,8 @@ timezone: Australia/Perth
 domain: iswhatcddown.com
 rubber_secret: "#{File.expand_path('~') + '/.ec2' + (Rubber.env == 'production' ? '' : '_dev') + '/rubber-secret.yml' rescue ''}"
 
+aws_s3_bucket: whatson.iswhatcddown.com
+
 cloud_providers:
   aws:
     region: us-east-1
