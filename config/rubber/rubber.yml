@@ -38,7 +38,7 @@ security_groups:
         from_port: "#{web_tools_port}"
         to_port: "#{web_tools_port}"
         source_ips: [0.0.0.0/0]
-assigned_security_groups: [ssh,web,web_tools]
+assigned_security_groups: [default,web,web_tools]
 auto_security_groups: true
 isolate_security_groups: false
 prompt_for_security_group_sync: true
