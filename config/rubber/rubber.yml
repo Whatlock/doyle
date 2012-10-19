@@ -1,5 +1,6 @@
 app_name: doyle
 app_user: app
+env: production
 admin_email: "karl@karlbright.org"
 web_port: 80
 web_tools_port: 8001
