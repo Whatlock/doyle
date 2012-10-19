@@ -19,4 +19,8 @@ class StylesheetUploader < CarrierWave::Uploader::Base
       "public/stylesheets/#{model.version}"
     end
   end
+
+  def cache_dir
+    "#{Rails.root}/tmp/stylesheets"
+  end
 end
