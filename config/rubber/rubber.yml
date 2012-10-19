@@ -17,8 +17,8 @@ cloud_providers:
 cloud_provider: aws
 
 security_groups:
-  ssh:
-    description: Open up SSH port (22)
+  default:
+    description: default group
     rules:
       - protocol: tcp
         from_port: 22
