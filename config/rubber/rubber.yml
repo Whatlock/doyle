@@ -1,9 +1,10 @@
 app_name: doyle
 app_user: app
 admin_email: "karl@karlbright.org"
+web_port: 80
+web_tools_port: 8001
 web_tools_user: admin
 web_tools_password: captainDoyl3
-web_tools_port: 8001
 timezone: Australia/Perth
 domain: iswhatcddown.com
 rubber_secret: "#{File.expand_path('~') + '/.ec2' + (Rubber.env == 'production' ? '' : '_dev') + '/rubber-secret.yml' rescue ''}"
@@ -16,16 +17,28 @@ cloud_providers:
 cloud_provider: aws
 
 security_groups:
-  default:
-    description: The default security group
+  ssh:
+    description: Open up SSH port (22)
     rules:
-      - source_group_name: default
-        source_group_account: "#{cloud_providers.aws.account}"
       - protocol: tcp
         from_port: 22
         to_port: 22
         source_ips: [0.0.0.0/0]
-assigned_security_groups: [default]
+  web:
+    description: "To open up port #{web_port}/#{web_ssl_port} for http server on web role"
+    rules:
+      - protocol: tcp
+        from_port: "#{web_port}"
+        to_port: "#{web_port}"
+        source_ips: [0.0.0.0/0]
+  web_tools:
+    description: "To open up port #{web_tools_port}/#{web_tools_ssl_port} for internal/tools http server"
+    rules:
+      - protocol: tcp
+        from_port: "#{web_tools_port}"
+        to_port: "#{web_tools_port}"
+        source_ips: [0.0.0.0/0]
+assigned_security_groups: [ssh,web,web_tools]
 auto_security_groups: true
 isolate_security_groups: false
 prompt_for_security_group_sync: true
