@@ -1,0 +1,54 @@
+---
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: doyle
+  domain: iswhatcddown.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: apache
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: common
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: db
+    options:
+      primary: true
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql_master
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: passenger
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: web_tools
+    options: {}
+  instance_id: i-0f7f9273
+  image_type: t1.micro
+  image_id: ami-2419a74d
+  security_groups:
+  - default
+  - web
+  - web_tools
+  - doyle
+  - apache
+  - common
+  - monit
+  - db
+  - postgresql
+  - postgresql_master
+  - passenger
+  external_host: ec2-23-20-199-65.compute-1.amazonaws.com
+  external_ip: 23.20.199.65
+  internal_host: domU-12-31-39-16-1D-BE.compute-1.internal
+  internal_ip: 10.96.30.76
+  zone: us-east-1a
+  platform: linux
+  root_device_type: ebs
+- volumes: {}
+  static_ips: {}
