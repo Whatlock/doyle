@@ -16,7 +16,7 @@ class StylesheetUploader < CarrierWave::Uploader::Base
     if Rails.env.production?
       model.version
     else
-      "public/stylesheets/#{model.version}"
+      "stylesheets/#{model.version}"
     end
   end
 
